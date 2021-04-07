@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Szymon_Lepianka_Wtorek14_NBPapi</string>
+    <string name="todayRateTextView">Dzisiejszy kurs: %1$f</string>
+    <string name="yesterdayRateTextView">Wczorajszy kurs: %1$f</string>
+    <string name="currenciesRatesLabel">Kursy walut</string>
+    <string name="goldLabel">Kurs złota</string>
+    <string name="converterLabel">Przelicznik</string>
+    <string name="defaultCurrencyCode">ABC</string>
+    <string name="defaultCurrencyRate">0.00</string>
+    <string name="countryFlag">countryFlag</string>
+    <string name="directionArrow">directionArrow</string>
+    <string name="todayGoldRateTextView">Dzisiejszy kurs złota: %1$f</string>
+    <string name="plnText">PLN</string>
+    <string name="anotherCurrencyDefault">ABC</string>
+    <string name="converterTitle">Przelicznik walut</string>
+    todayGoldRateTextView
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="timeLabel">Time Left: %1$d</string>
+    <string name="scoreLabel">Score: %1$d</string>
+    <string name="buttonLabel">START!</string>
+    <string name="gameOver">Game is over. Your  score" %1$d</string>
+
+</resources>
