@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import MapKit
+import CoreLocation
 
 // Wszystkie stałe wartości używane w UI powinny być sparametryzowane
 let roundedRectangleCornerRadius = 25.0
@@ -22,19 +24,36 @@ struct ContentView: View {
         ScrollView(.vertical){
             VStack{
             ForEach(viewModel.records){ record in
-                WeatherRecordView(record: record,viewModel:viewModel)
+                WeatherRecordView(
+                    record: record,
+                    viewModel:viewModel
+                    //region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: record.lattitude, longitude: record.longitude), span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
+                    
+                    )
             }
         }.padding()
         }
 	}
 }
-
+struct Place: Identifiable{
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+}
 struct WeatherRecordView: View{
     var record: WeatherModel.WeatherRecord
     var viewModel: WeatherViewModel
     @State var currentParamIndex = 0
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50.0, longitude: 20.0), span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta:1.0))
+    @State private var trackingMode = MapUserTrackingMode.none
+    @State private var places: [Place] = [Place(coordinate: .init(latitude: 30.064528, longitude: 19.923556))]
     var conditionDescriptions = ["Snow": "❄️", "Sleet": "❄️", "Hail": "🌨", "Thunderstorm": "⛈", "Heavy Rain": "🌧", "Light Rain": "🌧", "Showers": "🌦", "Heavy Cloud": "☁️", "Light Cloud": "🌥", "Clear":"☀️"]
-    var body: some View{  
+    @State private var showingSheet = false
+   
+    private func setRegio(){
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: record.lattitude, longitude: record.longitude), span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta:1.0))    }
+    
+    
+    var body: some View{
         ZStack{
             RoundedRectangle(cornerRadius: CGFloat(roundedRectangleCornerRadius)).stroke()
 			
@@ -67,6 +86,29 @@ struct WeatherRecordView: View{
 							// Zmienianie cykliczne wyświetlanego parametru
                             viewModel.refresh(record: record, currentParamIndex: self.currentParamIndex)
                         }
+                    Text("🗺").onTapGesture{
+                        setRegio()
+                        
+                        showingSheet = true
+                        
+                                           }.font(.largeTitle)
+                        
+                        // rozmiar czcionki
+                    .frame(alignment: .trailing) // wyrównanie do prawej strony
+                    .sheet(isPresented: $showingSheet, content:{
+                    
+                        VStack{
+                            Text("Map")    }
+                        // odpowiednia mapa , pokaże się za drugim razem, za pierwszym domyślna - bug
+                        Map(coordinateRegion: $region
+                            , annotationItems: [Place(coordinate: .init(latitude: record.lattitude, longitude: record.longitude))]
+                        )
+                        {
+                          place in MapPin(coordinate: place.coordinate)}
+                        
+                        .onAppear{self.setRegio()}
+                        
+                    })
                 })
             }.padding()
         } .frame(height: CGFloat(cityRecordHeight)) //Wysokość komórek z miastami powinna być ustalona parametrem
