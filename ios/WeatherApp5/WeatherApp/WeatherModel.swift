@@ -61,8 +61,8 @@ struct WeatherModel{
 		}
         let latlon = value.lattLong.components(separatedBy: ",")
         print(latlon)
-        records[index!].lattitude = Double(latlon[0])!
-        records[index!].longitude = Double(latlon[1])!
+        records[index!].lattitude = Double(latlon[0]) ?? 50
+        records[index!].longitude = Double(latlon[1]) ?? 20
         records[index!].weatherState = value.consolidatedWeather[0].weatherStateName
         records[index!].temperature = Float(value.consolidatedWeather[0].theTemp)
         records[index!].humidity = Float(value.consolidatedWeather[0].humidity)

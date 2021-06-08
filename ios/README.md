@@ -6,3 +6,4 @@ Introduction to mobile technologies course on AGH University of Science and Tech
 * WeatherApp2: UI
 * WeatherApp3: pobieranie danych
 * WeatherApp4: lokalizacja i mapy
+* WeatherApp5: szczegółowa prognoza pogody

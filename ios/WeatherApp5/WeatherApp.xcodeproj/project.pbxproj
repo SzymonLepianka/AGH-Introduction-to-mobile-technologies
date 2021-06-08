@@ -17,6 +17,7 @@
 		ACBE8D9026416A3000109BF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACBE8D8F26416A3000109BF2 /* Preview Assets.xcassets */; };
 		ACBE8D992641742A00109BF2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBE8D982641742A00109BF2 /* WeatherModel.swift */; };
 		ACBE8D9C2641766600109BF2 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBE8D9B2641766600109BF2 /* WeatherViewModel.swift */; };
+		ACCE027A266FDD9000DEB2A5 /* WeatherDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE0279266FDD9000DEB2A5 /* WeatherDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ACBE8D9126416A3000109BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACBE8D982641742A00109BF2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		ACBE8D9B2641766600109BF2 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		ACCE0279266FDD9000DEB2A5 /* WeatherDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				AC93CDED26602E7500E1EB4E /* MetaWeatherFetcher.swift */,
 				AC568ED42660F1BA005F910F /* MetaWeatherLocationResponse.swift */,
 				AC568ED72660F225005F910F /* MetaWeatherLocationFetcher.swift */,
+				ACCE0279266FDD9000DEB2A5 /* WeatherDetails.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				AC568ED82660F225005F910F /* MetaWeatherLocationFetcher.swift in Sources */,
 				ACBE8D8B26416A2E00109BF2 /* ContentView.swift in Sources */,
 				AC93CDEE26602E7500E1EB4E /* MetaWeatherFetcher.swift in Sources */,
+				ACCE027A266FDD9000DEB2A5 /* WeatherDetails.swift in Sources */,
 				ACBE8D9C2641766600109BF2 /* WeatherViewModel.swift in Sources */,
 				ACBE8D992641742A00109BF2 /* WeatherModel.swift in Sources */,
 				AC568ED52660F1BA005F910F /* MetaWeatherLocationResponse.swift in Sources */,

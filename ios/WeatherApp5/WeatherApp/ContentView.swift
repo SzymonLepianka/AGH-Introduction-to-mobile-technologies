@@ -21,17 +21,30 @@ struct ContentView: View {
     
     var body: some View {
 		// Użytkownik powinien mieć możliwość przewijania listy miast, jeżeli nie wszystkie mieszczą się na ekranie
+        
+            
+        NavigationView{
         ScrollView(.vertical){
+            
             VStack{
+                
+                    
+                
             ForEach(viewModel.records){ record in
-                WeatherRecordView(
+                //List(viewModel.records, id: \.id){record in
+                               WeatherRecordView(
                     record: record,
                     viewModel:viewModel
-                    //region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: record.lattitude, longitude: record.longitude), span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
+                    
                     
                     )
+                
+                
+                
             }
-        }.padding()
+            }.padding()
+        }.navigationBarTitle(Text("WeatherApp"))
+       
         }
 	}
 }
@@ -40,6 +53,8 @@ struct Place: Identifiable{
     let coordinate: CLLocationCoordinate2D
 }
 struct WeatherRecordView: View{
+    
+    
     var record: WeatherModel.WeatherRecord
     var viewModel: WeatherViewModel
     @State var currentParamIndex = 0
@@ -109,6 +124,9 @@ struct WeatherRecordView: View{
                         .onAppear{self.setRegio()}
                         
                     })
+                    NavigationLink(destination:  WeatherDetails(record: record)){                     Text(">")
+                    }
+                    
                 })
             }.padding()
         } .frame(height: CGFloat(cityRecordHeight)) //Wysokość komórek z miastami powinna być ustalona parametrem
